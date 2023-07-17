@@ -6,7 +6,6 @@ describe('',function(){
         await browser.url('https://www.spicejet.com/')
         await browser.pause(5000);
         let text = await browser.isAlertOpen();
-        console.log('+++++++++++++++++++++++',text);
         await browser.acceptAlert();
         await loginPage.moveToElement(loginPage.addOnButton);
         await browser.pause(3000);

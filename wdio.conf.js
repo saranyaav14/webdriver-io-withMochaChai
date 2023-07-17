@@ -1,3 +1,13 @@
+const url = require('./test/urls');
+const ENV = process.env.ENV;
+
+if(!ENV || !['qa','stage'].includes(ENV)){
+    console.log("Please provide env : qa, stage");
+    console.log("current env is",process.env.ENV);
+
+    process.exit;
+}
+
 exports.config = {
     //
     // ====================
@@ -24,9 +34,15 @@ exports.config = {
     //
     specs: [
         // './test/specs/amazon/**/*.js'
-                './test/specs/amazon/createList.js'
+                './test/specs/amazon/dragAndDrop.js'
 
     ],
+
+    suites: {
+        amazon:['./test/specs/amazon/searchProduct.js','./test/specs/amazon/dragAndDrop.js'
+        ]
+    },
+
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -88,7 +104,9 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    // baseUrl: 'http://localhost',
+    baseUrl: url[process.env.ENV],
+
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

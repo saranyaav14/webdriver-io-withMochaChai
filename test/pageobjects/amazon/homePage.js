@@ -28,9 +28,24 @@ class HomePage {
         return $('=Create a List');
     }
 
-    
+    get dragElement() {
+        return $("div#draggable");
+    }
 
-    
+    get dropElement() {
+        return $("div#droppable");
+    }
+
+    get backToTopButton(){
+        return $('span.navFooterBackToTopText');
+    }
+
+    get startHereButton(){
+        return $("//a[text()='Start here.']");
+    }
+
+
+
 }
 
 module.exports = new HomePage();

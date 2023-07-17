@@ -39,4 +39,17 @@ describe('search for new product', function(){
 
     })
 
+    it('click on back to top button',async function(){
+        await browser.url('https://www.amazon.com/')
+        await browser.pause(2000);
+        await browser.scroll(0,5200);
+        await browser.pause(3000);
+        await homePage.backToTopButton.click();
+        await browser.pause(3000);
+
+
+    })
+
+
+
 })
